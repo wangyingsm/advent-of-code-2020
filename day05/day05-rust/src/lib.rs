@@ -29,7 +29,7 @@ impl Seat {
 
 impl From<&str> for Seat {
     fn from(code: &str) -> Self {
-        let (fb, lr) = code.split_at(code.len()-3);
+        let (fb, lr) = code.split_at(code.len() - 3);
         Self {
             row: Self::decode(fb),
             col: Self::decode(lr),
@@ -42,7 +42,8 @@ pub fn read_input(input_file: &str) -> Vec<Seat> {
     use std::io::Read;
     let mut file = File::open(input_file).expect("open input file error");
     let mut buf = String::new();
-    file.read_to_string(&mut buf).expect("read input file error");
+    file.read_to_string(&mut buf)
+        .expect("read input file error");
     buf.lines().map(|s| Seat::from(s)).collect()
 }
 
@@ -68,10 +69,10 @@ mod tests {
 
     #[test]
     fn test_seat_row_col() {
-        assert_eq!(Seat::from("FBFBBFFRLR"), Seat{ row: 44, col: 5 });
-        assert_eq!(Seat::from("BFFFBBFRRR"), Seat{ row: 70, col: 7 });
-        assert_eq!(Seat::from("FFFBBBFRRR"), Seat{ row: 14, col: 7 });
-        assert_eq!(Seat::from("BBFFBBFRLL"), Seat{ row: 102, col: 4 });
+        assert_eq!(Seat::from("FBFBBFFRLR"), Seat { row: 44, col: 5 });
+        assert_eq!(Seat::from("BFFFBBFRRR"), Seat { row: 70, col: 7 });
+        assert_eq!(Seat::from("FFFBBBFRRR"), Seat { row: 14, col: 7 });
+        assert_eq!(Seat::from("BBFFBBFRLL"), Seat { row: 102, col: 4 });
     }
 
     #[test]
