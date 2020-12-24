@@ -36,7 +36,8 @@ impl ValidRanges {
     }
 
     pub fn add_range(&mut self, range: &str) {
-        self.ranges.push(Range::from(range));
+        let range = Range::from(range);
+        
     }
 
     pub fn contains(&self, value: u32) -> bool {
