@@ -90,6 +90,41 @@ pub fn part1_solution(lines: &[String]) -> usize {
     count_all_black_tiles(tiles)
 }
 
+fn count_black_neighbors(coord: Complex<i32>, tiles: &HashMap<Complex<i32>, bool>) -> usize {
+    use Orientation::*;
+    let mut counter = 0;
+    for diff in Orientation::ALL_ORIENTATIONS {
+        let coord = match diff {
+            West(x) | SouthWest(x) | SouthEast(x) | East(x) | NorthEast(x) | NorthWest(x) => {
+                coord + x
+            }
+        };
+        if *tiles.get(&coord).unwrap_or(&false) {
+            counter += 1;
+        }
+    }
+    counter
+}
+
+pub fn next_day(
+    tiles: HashMap<Complex<i32>, bool>,
+    left_top: Complex<i32>,
+    right_bottom: Complex<i32>,
+) -> (HashMap<Complex<i32>, bool>, Complex<i32>, Complex<i32>) {
+    let mut new_tiles = HashMap::new();
+    for y in (left_top.im - 2..=right_bottom.im + 2).step_by(2) {
+        for x in left_top.re - 1..=right_bottom.re + 1 {
+            let coord = Complex::new(x, y);
+            let neighbors = count_black_neighbors(coord, &tiles);
+            let color = *tiles.get(&coord).unwrap_or(&false);
+            if color && neighbors > 0 && neighbors <= 2 {
+                new_tiles.insert(coord, true);
+            }
+        }
+    }
+    (new_tiles, left_top, right_bottom)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
