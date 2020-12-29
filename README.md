@@ -16,7 +16,7 @@ Any suggestions or advices on codes, algorithms, data structures, etc. are mostl
 
 
 
-目录（部分解答仍在整理和优化代码中）：
+目录：
 
 | Day                                                                          | Python in notebook                                                                             | Rust                                                                                        |
 | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
@@ -42,6 +42,6 @@ Any suggestions or advices on codes, algorithms, data structures, etc. are mostl
 | [Day 20](https://github.com/wangyingsm/advent-of-code-2020/tree/master/day20) | [Finished](https://github.com/wangyingsm/advent-of-code-2020/tree/master/day20/solution.ipynb) | [Finished](https://github.com/wangyingsm/advent-of-code-2020/tree/master/day20/day20-rust/) |
 | [Day 21](https://github.com/wangyingsm/advent-of-code-2020/tree/master/day21) | [Finished](https://github.com/wangyingsm/advent-of-code-2020/tree/master/day21/solution.ipynb) | [Finished](https://github.com/wangyingsm/advent-of-code-2020/tree/master/day21/day21-rust/) |
 | [Day 22](https://github.com/wangyingsm/advent-of-code-2020/tree/master/day22) | [Finished](https://github.com/wangyingsm/advent-of-code-2020/tree/master/day22/solution.ipynb) | [Finished](https://github.com/wangyingsm/advent-of-code-2020/tree/master/day22/day22-rust/) |
-| [Day 23](https://github.com/wangyingsm/advent-of-code-2020/tree/master/day23) | [To be revised](https://github.com/wangyingsm/advent-of-code-2020/tree/master/day23/solution.ipynb) | [Todo](https://github.com/wangyingsm/advent-of-code-2020/tree/master/day23/day23-rust/) |
+| [Day 23](https://github.com/wangyingsm/advent-of-code-2020/tree/master/day23) | [Finished](https://github.com/wangyingsm/advent-of-code-2020/tree/master/day23/solution.ipynb) | [Finished](https://github.com/wangyingsm/advent-of-code-2020/tree/master/day23/day23-rust/) |
 | [Day 24](https://github.com/wangyingsm/advent-of-code-2020/tree/master/day24) | [Finished](https://github.com/wangyingsm/advent-of-code-2020/tree/master/day24/solution.ipynb) | [Finished](https://github.com/wangyingsm/advent-of-code-2020/tree/master/day24/day24-rust/) |
 | [Day 25](https://github.com/wangyingsm/advent-of-code-2020/tree/master/day25) | [Finished](https://github.com/wangyingsm/advent-of-code-2020/tree/master/day25/solution.ipynb) | [Finished](https://github.com/wangyingsm/advent-of-code-2020/tree/master/day25/day25-rust/) |
