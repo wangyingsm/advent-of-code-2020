@@ -37,49 +37,35 @@ impl<'a> CupsCircle {
         let mut data_cups = Vec::with_capacity(data.len());
         for c in data.as_bytes().iter().map(|x| (x - b'0') as u32) {
             data_cups.push(Box::leak::<'a>(Box::new(Cup {
-                // data_cups.push(Cup {
                 cup_id: c,
                 next: NonNull::dangling(),
                 less_one: NonNull::dangling(),
                 in_chain: true,
             })));
-            // });
         }
         let current = &mut *data_cups[0] as *mut Cup;
-        // let current = &mut data_cups[0] as *mut Cup;
         let mut prev_cup = &mut *data_cups[0] as *mut Cup;
-        // let mut prev_cup = &mut data_cups[0] as *mut Cup;
         for cup in data_cups.iter_mut().skip(1) {
             (unsafe { &mut *prev_cup }).next = NonNull::new(*cup as *mut Cup).unwrap();
-            // (unsafe { &mut *prev_cup }).next = NonNull::new(cup as *mut Cup).unwrap();
             prev_cup = *cup as *mut Cup;
-            // prev_cup = cup as *mut Cup;
         }
         data_cups.sort_by_key(|x| x.cup_id);
         let number_1 = &mut *data_cups[0] as *mut Cup;
-        // let number_1 = &mut data_cups[0] as *mut Cup;
         let mut less_one_cup = &mut *data_cups[0] as *mut Cup;
-        // let mut less_one_cup = &mut data_cups[0] as *mut Cup;
         for cup in data_cups.iter_mut().skip(1) {
             cup.less_one = NonNull::new(less_one_cup).unwrap();
             less_one_cup = *cup as *mut Cup;
-            // less_one_cup = cup as *mut Cup;
         }
         for cup_id in (data_cups.len() as u32 + 1)..=end {
             let cup = Box::leak::<'a>(Box::new(Cup {
-                // let mut cup = Cup {
                 cup_id,
                 next: NonNull::dangling(),
                 less_one: NonNull::new(less_one_cup).unwrap(),
                 in_chain: true,
             }));
-            // };
             (unsafe { &mut *prev_cup }).next = NonNull::new(&mut *cup as *mut Cup).unwrap();
-            // (unsafe { &mut *prev_cup }).next = NonNull::new(&mut cup as *mut Cup).unwrap();
             prev_cup = &mut *cup as *mut Cup;
-            // prev_cup = &mut cup as *mut Cup;
             less_one_cup = &mut *cup as *mut Cup;
-            // less_one_cup = &mut cup as *mut Cup;
         }
         (unsafe { &mut *prev_cup }).next = NonNull::new(current).unwrap();
         (unsafe { &mut *number_1 }).less_one = NonNull::new(less_one_cup).unwrap();
@@ -102,7 +88,6 @@ impl<'a> CupsCircle {
         }
         unsafe {
             (*self.current.as_ptr()).next = NonNull::new(ptr).unwrap();
-            // (*ptr).next = NonNull::dangling();
         }
         tripple_begin
     }
